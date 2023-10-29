@@ -32,7 +32,7 @@ class _UsersListViewState extends State<UsersListView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Lista de Usuarios'),
+        title: const Text('Usuarios'),
       ),
       body: isLoading
           ? const Center(

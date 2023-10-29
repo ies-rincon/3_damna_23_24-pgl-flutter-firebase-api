@@ -3,11 +3,19 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:firebase_api/src/models/user_model.dart';
 
+class API {
+  static const String localUrl =
+      "http://xxx.xxx.xxx.xxx:3000/users"; // <-- Check your local ip address
+  static const String firebaseUrl =
+      "https://damna-pgl-firebase-default-rtdb.firebaseio.com/users.json";
+}
+
 class UserService {
   Future<List<User>> fetchUsers() async {
+    const apiUrl = API.firebaseUrl;
+    print('API: ${apiUrl}');
     final response = await http.get(
-      Uri.parse(
-          'https://damna-pgl-firebase-default-rtdb.firebaseio.com/users.json'),
+      Uri.parse(apiUrl),
     );
 
     if (response.statusCode == 200) {
